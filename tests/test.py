@@ -29,3 +29,13 @@ class LazyTagTestCase(TestCase):
         a = TestModel.objects.create(tags=['a', ' a ', 'b', ' b'])
         b = TestModel.objects.last()
         self.assertEqual(set(b.tags), set(['a', 'b']))
+
+    def test_filtered_all(self):
+        v = TestModel.objects.filter(tags__contains=['five']).all_tag_values('tags')
+        self.assertEqual(set(v), set(tags2))
+
+    def test_filtered_count(self):
+        v = TestModel.objects.filter(tags__contains=['five']).count_tag_values('tags')
+        for key, val in v.items():
+            self.assertTrue(key in tags2)
+            self.assertEqual(val, 1)
