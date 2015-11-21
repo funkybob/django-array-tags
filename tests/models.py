@@ -1,7 +1,7 @@
 
 from django.db import models
 
-from lazy_tags import fields, managers
+from array_tags import fields, managers
 
 
 class TestModel(models.Model):

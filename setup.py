@@ -1,12 +1,12 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='django-lazy-tags',
+    name='django-array-tags',
     version='0.1',
     description='Simple Tagging for Django using PG ArrayField',
     author='Curtis Maloney',
     author_email='curtis@tinbrain.net',
-    url='http://github.com/funkybob/django-lazy-tags',
+    url='http://github.com/funkybob/django-array-tags',
     packages = find_packages(exclude=('tests*',)),
     zip_safe=False,
     classifiers = [
