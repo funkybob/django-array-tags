@@ -9,17 +9,19 @@ class TagQuerySet(QuerySet):
     '''
     def all_tag_values(self, name):
         return tuple(
-            self
+            self.order_by()
             .annotate(_v=Unnest(name))
             .values_list('_v', flat=True)
             .distinct()
         )
 
     def count_tag_values(self, name):
-        return dict(
-            self
+        qset = (
+            self.order_by()
             .annotate(_v=Unnest(name))
             .values('_v')
             .annotate(count=Count('*'))
             .values_list('_v', 'count')
         )
+        print(qset.query)
+        return dict(qset)
