@@ -16,12 +16,10 @@ class TagQuerySet(QuerySet):
         )
 
     def count_tag_values(self, name):
-        qset = (
+        return dict(
             self.order_by()
             .annotate(_v=Unnest(name))
             .values('_v')
             .annotate(count=Count('*'))
             .values_list('_v', 'count')
         )
-        print(qset.query)
-        return dict(qset)
