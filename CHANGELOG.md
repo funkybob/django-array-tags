@@ -1,3 +1,7 @@
+# 0.1.3
+
+Remove debug kruft from fixing previous bug.
+
 # 0.1.2
 
 Ensure we remove ordering from querysets we're going to count to avoid extra
