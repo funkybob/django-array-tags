@@ -23,7 +23,7 @@ For convenience, there is also a `TagQuerySet` which adds two methods:
 
 `all_tag_values(name)`
 
-Returns all tuple the tags in objects in the current queryset from the TagField called `name`.
+Returns a tuple of all the tags in objects in the current queryset from the TagField called `name`.
 
 `count_tag_values(name)`
 
