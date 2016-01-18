@@ -5,3 +5,4 @@ from django.utils.functional import cached_property
 
 class Unnest(models.Func):
     function = 'unnest'
+    arity = 1
