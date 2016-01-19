@@ -11,7 +11,7 @@ env:
   - DJANGO="Django<1.10"
 
 install:
-  - pip install $DJANGO --use-mirrors
+  - pip install psycopg2 $DJANGO --use-mirrors
 
 script:
   - python runtests.py
