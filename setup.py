@@ -23,10 +23,8 @@ setup(
     ],
     requires = [
         'Django (>=1.7)',
-        'psycopg2',
     ],
     install_requires = [
         'Django>=1.7',
-        'psycopg2',
     ],
 )
