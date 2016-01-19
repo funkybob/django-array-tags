@@ -14,6 +14,8 @@ class TagField(ArrayField):
         Trim whitspace and deduplicate values.
         '''
         values = super(TagField, self).pre_save(model_instance, add)
+        if values is None:
+            return []
         values = {val.strip() for val in values}
         if self.lower:
             values = {val.lower() for val in values}
