@@ -1,3 +1,15 @@
+# 0.1.6
+
+Added `get_most_like_by_FIELD` helper method.
+
+# 0.1.5
+
+Added `lower` option to `TagField`
+
+# 0.1.4
+
+Added `TagQuerySet.most_like` method.
+
 # 0.1.3
 
 Remove debug kruft from fixing previous bug.

@@ -18,6 +18,8 @@ Now you have tags!  Values will be stripped and de-duplicated on save.
 
 You can optionally pass `lower=True` to TagField to lower-case all values before saving.
 
+The model will gain a helper method `get_most_like_by_FIELD` where `FIELD` is replaced with the name of the field.  This will call the `most_like` method on the manager, passing the field name and this instances tags.
+
 TagQuerySet
 -----------
 
