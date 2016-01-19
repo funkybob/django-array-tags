@@ -1,6 +1,6 @@
-from django.db.models import Count, QuerySet
+from django.db.models import Count, QuerySet, F
 
-from .lookups import Unnest
+from .lookups import Unnest, Intersect
 
 
 class TagQuerySet(QuerySet):
@@ -22,4 +22,15 @@ class TagQuerySet(QuerySet):
             .values('_v')
             .annotate(count=Count('*'))
             .values_list('_v', 'count')
+        )
+
+    def most_like(self, field, tags):
+        '''
+        '''
+        return (
+            self.order_by()
+            .annotate(
+                similarity=Intersect(F(field), tags)
+            )
+            .order_by('-similarity')
         )
