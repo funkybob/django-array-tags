@@ -1,6 +1,7 @@
 # 0.1.6
 
 Added `get_most_like_by_FIELD` helper method.
+Safely replace None with []
 
 # 0.1.5
 
