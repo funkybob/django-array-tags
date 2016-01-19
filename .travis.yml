@@ -4,8 +4,8 @@ python:
   - "3.3"
   - "3.4"
   - "3.5"
-  - "pypy"
-  - "pypy3"
+  # - "pypy"
+  # - "pypy3"
 env:
   - DJANGO="Django<1.9"
   - DJANGO="Django<1.10"
