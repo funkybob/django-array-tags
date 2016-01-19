@@ -49,3 +49,15 @@ class LazyTagTestCase(TestCase):
         self.assertEqual(qset[0].pk, self.objects[1].pk)
         self.assertEqual(qset[1].similarity, 1)  # one
         self.assertEqual(qset[1].pk, self.objects[0].pk)
+
+    def test_contribute_to_class(self):
+        qset = list(self.objects[0].get_most_like_by_tags())
+        self.assertEqual(len(qset), 1)  # Excluding self
+        self.assertEqual(qset[0].pk, self.objects[1].pk)
+        self.assertEqual(qset[0].similarity, 1)
+
+    def test_contribute_to_class_exclude(self):
+        qset = list(self.objects[0].get_most_like_by_tags(False))
+        self.assertEqual(len(qset), 2)
+        self.assertEqual(qset[0].pk, self.objects[0].pk)
+        self.assertEqual(qset[0].similarity, 3)

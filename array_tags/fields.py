@@ -18,3 +18,17 @@ class TagField(ArrayField):
         if self.lower:
             values = {val.lower() for val in values}
         return tuple(values)
+
+    def contribute_to_class(self, cls, name, virtual_only=False):
+        '''
+        Add a 'get_{name}_most_like' method.
+        '''
+        super(TagField, self).contribute_to_class(cls, name, virtual_only)
+
+        def get_most_like_by_FIELD(self, exclude_self=True, field=name):
+            qset = self._default_manager.all()
+            if exclude_self:
+                qset = qset.exclude(pk=self.pk)
+            return qset.most_like(field, self.tags)
+
+        setattr(cls, 'get_most_like_by_%s' % name, get_most_like_by_FIELD)
