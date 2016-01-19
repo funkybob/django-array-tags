@@ -11,10 +11,12 @@ Add the ArrayField to your model:
     from array_tags.fields import TagField
 
     class MyModel(models.Model):
-        tagss = TagField()
+        tags = TagField()
 
 
 Now you have tags!  Values will be stripped and de-duplicated on save.
+
+You can optionally pass `lower=True` to TagField to lower-case all values before saving.
 
 TagQuerySet
 -----------
