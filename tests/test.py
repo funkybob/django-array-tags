@@ -19,6 +19,9 @@ class LazyTagTestCase(TestCase):
             TestModel.objects.create(tags=tags2)
         ]
 
+    def test_null(self):
+        v = TestModel.objects.create()
+
     def test_all_values(self):
         v = TestModel.objects.all_tag_values('tags')
         self.assertEqual(set(v), all_tags)
@@ -31,7 +34,16 @@ class LazyTagTestCase(TestCase):
     def test_cleanup(self):
         TestModel.objects.create(tags=['a', ' a ', 'b', ' b'])
         b = TestModel.objects.last()
-        self.assertEqual(set(b.tags), set(['a', 'b']))
+        self.assertEqual(set(b.tags), {'a', 'b'})
+
+    def test_lower(self):
+        TestModel.objects.create(
+            tags=['a', 'B', 'CooL'],
+            lower_tags=['a', 'B', 'CooL'],
+        )
+        b = TestModel.objects.last()
+        self.assertEqual(set(b.tags), {'a', 'B', 'CooL'})
+        self.assertEqual(set(b.lower_tags), {'a', 'b', 'cool'})
 
     def test_filtered_all(self):
         v = TestModel.objects.filter(tags__contains=['five']).all_tag_values('tags')
