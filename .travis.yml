@@ -12,8 +12,8 @@ env:
 
 install:
   - pip install -U pip
-  - if [[ $TRAVIS_PYTHON_VERSION == pypy* ]] then pip install psycopg2cffi; fi
-  - if [[ $TRAVIS_PYTHON_VERSION != pypy* ]] then pip install psycopg2; fi
+  - if [[ $TRAVIS_PYTHON_VERSION == pypy* ]]; then pip install psycopg2cffi; fi
+  - if [[ $TRAVIS_PYTHON_VERSION != pypy* ]]; then pip install psycopg2; fi
   - pip install $DJANGO
 
 script:
