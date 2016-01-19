@@ -1,9 +1,5 @@
-from types import MethodType
-
 from django.contrib.postgres.fields import ArrayField
 from django.db import models
-
-from .lookups import Unnest
 
 
 class TagField(ArrayField):
