@@ -29,6 +29,6 @@ class TagField(ArrayField):
             qset = self._default_manager.all()
             if exclude_self:
                 qset = qset.exclude(pk=self.pk)
-            return qset.most_like(field, self.tags)
+            return qset.most_like(field, getattr(self, field)
 
         setattr(cls, 'get_most_like_by_%s' % name, get_most_like_by_FIELD)
