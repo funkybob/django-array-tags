@@ -8,7 +8,7 @@ class TagQuerySet(QuerySet):
     Mix into your tagged model to provide extra helpers
     '''
     def all_tag_values(self, name):
-        return tuple(
+        return (
             self.order_by()
             .annotate(_v=Unnest(name))
             .values_list('_v', flat=True)
@@ -16,7 +16,7 @@ class TagQuerySet(QuerySet):
         )
 
     def count_tag_values(self, name):
-        return dict(
+        return (
             self.order_by()
             .annotate(_v=Unnest(name))
             .values('_v')
@@ -29,8 +29,6 @@ class TagQuerySet(QuerySet):
         '''
         return (
             self.order_by()
-            .annotate(
-                similarity=Intersect(F(field), tags)
-            )
+            .annotate(similarity=Intersect(F(field), tags))
             .order_by('-similarity')
         )

@@ -28,7 +28,7 @@ class LazyTagTestCase(TestCase):
 
     def test_count_values(self):
         v = TestModel.objects.count_tag_values('tags')
-        for key, value in v.items():
+        for key, value in v:
             self.assertEqual(value, tag_counts[key])
 
     def test_cleanup(self):
@@ -51,7 +51,7 @@ class LazyTagTestCase(TestCase):
 
     def test_filtered_count(self):
         v = TestModel.objects.filter(tags__contains=['five']).count_tag_values('tags')
-        for key, val in v.items():
+        for key, val in v:
             self.assertTrue(key in tags2)
             self.assertEqual(val, 1)
 

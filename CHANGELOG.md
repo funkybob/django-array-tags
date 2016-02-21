@@ -1,3 +1,7 @@
+# 0.1.7
+
+Change manager methods to return querysets.
+
 # 0.1.6
 
 Added `get_most_like_by_FIELD` helper method.
