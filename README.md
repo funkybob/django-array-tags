@@ -9,10 +9,13 @@ Usage
 Add the ArrayField to your model:
 
     from array_tags.fields import TagField
+    from array_tags.managers import TagQuerySet
+
 
     class MyModel(models.Model):
         tags = TagField()
 
+        objects = TagQuerySet.as_manager()
 
 Now you have tags!  Values will be stripped and de-duplicated on save.
 
