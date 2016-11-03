@@ -9,6 +9,7 @@ class Unnest(models.Func):
 class ArrayLength(models.Func):
     function = 'array_length'
     arity = 1
+    output_field = models.IntegerField()
 
 
 class Intersect(models.Func):
