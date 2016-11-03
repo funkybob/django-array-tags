@@ -1,3 +1,8 @@
+# 0.2.0
+
+Make compatible with Django 1.10
+Set output_field on ArrayLength db func
+
 # 0.1.7
 
 Change manager methods to return querysets.
