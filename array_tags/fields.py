@@ -28,7 +28,7 @@ class TagField(ArrayField):
         super(TagField, self).contribute_to_class(cls, name, virtual_only)
 
         def get_most_like_by_FIELD(self, exclude_self=True, field=name):
-            qset = self._default_manager.all()
+            qset = self.__class__._default_manager.all()
             if exclude_self:
                 qset = qset.exclude(pk=self.pk)
             return qset.most_like(field, getattr(self, field))
