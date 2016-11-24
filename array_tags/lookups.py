@@ -17,11 +17,11 @@ class Intersect(models.Func):
     output_field = models.IntegerField()
     arity = 2
 
-    def as_sql(self, compiler, connection, function=None, template=None):
+    def as_sql(self, compiler, connection):
         field_sql, field_params = compiler.compile(self.source_expressions[0])
         value_sql, value_params = compiler.compile(self.source_expressions[1])
 
-        template = template or self.extra.get('template', self.template)
+        template = self.extra.get('template', self.template)
         return (
             template % {'field': field_sql, 'value': value_sql},
             field_params + value_params,
