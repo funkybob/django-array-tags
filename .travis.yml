@@ -4,12 +4,14 @@ python:
   - "3.3"
   - "3.4"
   - "3.5"
+  - "3.6"
   # - "pypy"
   # - "pypy3"
 env:
   - DJANGO="Django<1.9"
   - DJANGO="Django<1.10"
   - DJANGO="Django<1.11"
+  - DJANGO="Django<1.12"
 
 install:
   - pip install -U pip
@@ -29,4 +31,8 @@ matrix:
   - env: DJANGO="Django<1.11"
     python: "3.3"
   - env: DJANGO="Django<1.11"
+    python: "pypy3"
+  - env: DJANGO="Django<1.12"
+    python: "3.3"
+  - env: DJANGO="Django<1.12"
     python: "pypy3"
