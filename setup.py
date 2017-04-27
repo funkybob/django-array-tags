@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='django-array-tags',
-    version='0.2.0',
+    version='0.2.1',
     description='Simple Tagging for Django using PG ArrayField',
     author='Curtis Maloney',
     author_email='curtis@tinbrain.net',
