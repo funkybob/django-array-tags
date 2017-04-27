@@ -59,6 +59,8 @@ Admin Widget
 
 Included is a "smart" tag widget for use in Admin.
 
+![Widget Example](widget.png)
+
 Unlike other uses, this requires `array_tags` to be included in
 `settings.INSTALLED_APPS`.
 
