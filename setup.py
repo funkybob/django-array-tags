@@ -2,12 +2,13 @@ from setuptools import setup, find_packages
 
 setup(
     name='django-array-tags',
-    version='0.2.1',
+    version='0.2.2',
     description='Simple Tagging for Django using PG ArrayField',
     author='Curtis Maloney',
     author_email='curtis@tinbrain.net',
     url='http://github.com/funkybob/django-array-tags',
     packages = find_packages(exclude=('tests*',)),
+    include_package_data=True,
     zip_safe=False,
     classifiers = [
         'Environment :: Web Environment',
