@@ -46,9 +46,9 @@
 
     ArrayTag.prototype.render_tags = function () {
         this.tagList.innerHTML = Array.from(this.values)
-                .sort()
-                .map(function (val) {return '<span>' + val + '<a href="#" class="deletelink"></a></span>';})
-                .join(' ');
+            .sort()
+            .map(function (val) {return '<span>' + val + '<a href="#" class="deletelink"></a></span>';})
+            .join(' ');
     };
 
     ArrayTag.prototype.split_tags = function (value) {
@@ -57,7 +57,7 @@
 
     window.ArrayTag = ArrayTag;
 
-    addEvent(window, 'load', function(e) {
+    document.addEventListener('DOMContentLoaded', function() {
         Array.from(document.querySelectorAll('.array-tag')).forEach((el) => {
             new ArrayTag(el);
         });
