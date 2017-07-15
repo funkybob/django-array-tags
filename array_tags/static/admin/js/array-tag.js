@@ -58,8 +58,9 @@
     window.ArrayTag = ArrayTag;
 
     document.addEventListener('DOMContentLoaded', function() {
-        Array.from(document.querySelectorAll('.array-tag')).forEach((el) => {
-            new ArrayTag(el);
-        });
+        Array.from(document.querySelectorAll('.array-tag')).forEach(el => new ArrayTag(el));
+    });
+    $('formset:added', function (ev, row) {
+        Array.from(row.querySelectorAll('.array-tag')).forEach(el => new ArrayTag(el));
     });
 })();
