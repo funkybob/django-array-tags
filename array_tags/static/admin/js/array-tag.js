@@ -17,7 +17,12 @@
         div.classList.add('tag-input');
 
         this.inp = document.createElement('input');
-        this.inp.setAttribute('type', 'text');
+        // [#5] Copy attributes from original input
+        Array.from(this.el.attributes).forEach(att => {
+            if (!['id', 'name', 'value', 'style'].includes(att.name)) {
+                this.inp.setAttribute(att.name, att.value);
+            }
+        }
         div.appendChild(this.inp);
 
         this.button = document.createElement('a');
@@ -60,7 +65,7 @@
     document.addEventListener('DOMContentLoaded', () => {
         Array.from(document.querySelectorAll('.array-tag')).forEach(el => new ArrayTag(el));
     });
-    $('formset:added', (ev, row) => {
+    $(document).on('formset:added', (ev, row) => {
         Array.from(row.querySelectorAll('.array-tag')).forEach(el => new ArrayTag(el));
     });
 })();
