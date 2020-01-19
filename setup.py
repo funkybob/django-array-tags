@@ -1,9 +1,13 @@
 from setuptools import setup, find_packages
 
+with open('README.md') as fin:
+    long_description = fin.read()
+
 setup(
     name='django-array-tags',
     version='0.2.2',
     description='Simple Tagging for Django using PG ArrayField',
+    long_description=long_description,
     author='Curtis Maloney',
     author_email='curtis@tinbrain.net',
     url='http://github.com/funkybob/django-array-tags',
